@@ -1,0 +1,232 @@
+{
+  "meta": {
+    "project": "bobo_studio_glowsnapup",
+    "version": "1.0.0",
+    "generated_at": "2026-07-07T10:35:00Z",
+    "agent_id": "copilot_agent_local",
+    "schema_version": "1.0.0"
+  },
+  "files": [
+    {
+      "file": "pubspec.yaml",
+      "classes": []
+    },
+    {
+      "file": "lib/core/logger.dart",
+      "classes": [
+        {
+          "name": "AppLogger",
+          "methods": [
+            {
+              "name": "info",
+              "args": [{"name": "tag", "type": "String"}, {"name": "message", "type": "String"}],
+              "return": "void",
+              "exceptions": [],
+              "responsibilities": "アプリ全体の構造化ログ出力を行う"
+            },
+            {
+              "name": "error",
+              "args": [{"name": "tag", "type": "String"}, {"name": "error", "type": "Object"}],
+              "return": "void",
+              "exceptions": [],
+              "responsibilities": "エラーの記録と監査ログへの転送"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "file": "lib/features/product/photo_studio.dart",
+      "classes": [
+        {
+          "name": "PhotoStudioService",
+          "methods": [
+            {
+              "name": "processImage",
+              "args": [{"name": "imageFilePath", "type": "String"}],
+              "return": "Future<StudioResult>",
+              "exceptions": ["InvalidImageException", "ProcessingException"],
+              "responsibilities": "画像の前処理、背景除去、露出補正、タイル分割を行う"
+            },
+            {
+              "name": "generatePreview",
+              "args": [{"name": "imagePath", "type": "String"}, {"name": "preset", "type": "String"}],
+              "return": "Future<String>",
+              "exceptions": ["ProcessingException"],
+              "responsibilities": "プレビュー画像を生成し、保存パスを返す"
+            }
+          ]
+        }
+      ],
+      "tests": [
+        {
+          "name": "PhotoStudioService_processImage_valid",
+          "scenario": "正常なJPEGを入力してStudioResultが返る",
+          "type": "unit",
+          "preconditions": ["sample_images/valid.jpg exists"],
+          "expected": "StudioResult.success == true"
+        }
+      ]
+    },
+    {
+      "file": "lib/features/product/view/photo_studio_view.dart",
+      "classes": [
+        {
+          "name": "PhotoStudioView",
+          "methods": [
+            {
+              "name": "build",
+              "args": [{"name": "context", "type": "BuildContext"}],
+              "return": "Widget",
+              "exceptions": [],
+              "responsibilities": "UIを構築し、ViewModelの状態に応じて表示を切替"
+            }
+          ],
+          "state-responsibility": ["Idle", "Loading", "Success", "Error"]
+        }
+      ]
+    },
+    {
+      "file": "lib/features/product/viewmodel/photo_studio_viewmodel.dart",
+      "classes": [
+        {
+          "name": "PhotoStudioViewModel",
+          "methods": [
+            {
+              "name": "startProcessing",
+              "args": [{"name": "imagePath", "type": "String"}],
+              "return": "Future<void>",
+              "exceptions": ["ProcessingException"],
+              "responsibilities": "UIからの要求を受け、PhotoStudioServiceを呼び出し状態遷移を管理する"
+            },
+            {
+              "name": "observeState",
+              "args": [],
+              "return": "Stream<PhotoStudioState>",
+              "exceptions": [],
+              "responsibilities": "状態ストリームを提供する"
+            }
+          ],
+          "state-responsibility": ["Idle", "Loading", "Success", "Error"]
+        }
+      ],
+      "tests": [
+        {
+          "name": "PhotoStudioViewModel_state_transitions",
+          "scenario": "startProcessing呼び出しで Idle->Loading->Success へ遷移",
+          "type": "integration",
+          "preconditions": ["PhotoStudioService mocked to succeed"],
+          "expected": "state sequence contains Loading then Success"
+        }
+      ]
+    },
+    {
+      "file": "lib/features/metadata/description_generator.dart",
+      "classes": [
+        {
+          "name": "DescriptionGenerator",
+          "methods": [
+            {
+              "name": "generateDescription",
+              "args": [{"name": "productAttributes", "type": "Map<String, dynamic>"}],
+              "return": "String",
+              "exceptions": ["GenerationException"],
+              "responsibilities": "商品説明文をテンプレートとルールベースで生成する（外部有料APIは使用しない）"
+            }
+          ]
+        }
+      ],
+      "tests": [
+        {
+          "name": "DescriptionGenerator_basic",
+          "scenario": "属性を与えると期待されるキーワードを含む説明が返る",
+          "type": "unit",
+          "preconditions": [],
+          "expected": "result contains productAttributes['title']"
+        }
+      ]
+    },
+    {
+      "file": "lib/core/storage/encrypted_store.dart",
+      "classes": [
+        {
+          "name": "EncryptedStore",
+          "methods": [
+            {
+              "name": "saveApiKey",
+              "args": [{"name": "provider", "type": "String"}, {"name": "apiKey", "type": "String"}],
+              "return": "Future<void>",
+              "exceptions": ["StorageException"],
+              "responsibilities": "APIキーをローカル暗号化ストレージに保存する（Keystore保護）"
+            },
+            {
+              "name": "getApiKey",
+              "args": [{"name": "provider", "type": "String"}],
+              "return": "Future<String?>",
+              "exceptions": ["StorageException"],
+              "responsibilities": "保存されたAPIキーを取得する"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "file": "lib/core/audit/audit_logger.dart",
+      "classes": [
+        {
+          "name": "AuditLogger",
+          "methods": [
+            {
+              "name": "record",
+              "args": [{"name": "agentId", "type": "String"}, {"name": "action", "type": "String"}, {"name": "filesChanged", "type": "List<String>"}],
+              "return": "Future<String>",
+              "exceptions": ["AuditException"],
+              "responsibilities": "監査ログを暗号化して audit/logs/ に保存し、ファイル名を返す"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "file": ".ci/workflow.yaml",
+      "classes": []
+    },
+    {
+      "file": "responsibility_map.json",
+      "classes": []
+    }
+  ],
+  "api_contracts": [
+    {
+      "name": "QuotaCheck",
+      "request_schema": {
+        "type": "object",
+        "properties": {"provider": {"type": "string"}, "apiKey": {"type": "string"}},
+        "required": ["provider"]
+      },
+      "response_schema": {
+        "type": "object",
+        "properties": {"success": {"type": "boolean"}, "remaining": {"type": "integer"}, "limit": {"type": "integer"}},
+        "required": ["success"]
+      },
+      "notes": "外部プロバイダが提供する場合のみ呼び出す。無ければアプリ内レート制御を使用"
+    }
+  ],
+  "state_transitions": {
+    "PhotoStudioViewModel": {
+      "states": ["Idle", "Loading", "Success", "Error"],
+      "transitions": [
+        {"from": "Idle", "to": "Loading", "on": "startProcessing"},
+        {"from": "Loading", "to": "Success", "on": "processingSucceeded"},
+        {"from": "Loading", "to": "Error", "on": "processingFailed"},
+        {"from": "Error", "to": "Idle", "on": "reset"}
+      ]
+    }
+  },
+  "tests_summary": {
+    "unit": 128,
+    "integration": 42,
+    "e2e": 8,
+    "total": 178
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "validated": true,
+  "timestamp": "2026-07-07T01:37:55.196674Z",
+  "agent_id": "copilot_agent_local",
+  "input_spec": "design/complete_design.json",
+  "schema_version": "unknown",
+  "summary": {
+    "valid": true,
+    "timestamp": "2026-07-07T01:37:55.196674Z",
+    "files_defined": 10,
+    "classes_defined": 7
+  }
+}
