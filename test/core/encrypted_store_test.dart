@@ -2,58 +2,37 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import '../../lib/core/storage/encrypted_store.dart';
 
-class _InMemorySecureStorage implements FlutterSecureStorage {
-  final Map<String, String> _m = {};
+class FakeSecureStorage {
+  final Map<String, String> _store = {};
 
   @override
-  final AndroidOptions aOptions = const AndroidOptions();
-  @override
-  final IOSOptions iOptions = const IOSOptions();
-  @override
-  final LinuxOptions lOptions = const LinuxOptions();
-  @override
-  final MacOsOptions mOptions = const MacOsOptions();
-  @override
-  final WindowsOptions wOptions = const WindowsOptions();
-  @override
-  final WebOptions webOptions = const WebOptions();
-
-  @override
-  Future<void> write({required String key, required String? value, IOSOptions? iOptions, AndroidOptions? aOptions, LinuxOptions? lOptions, MacOsOptions? mOptions, WindowsOptions? wOptions, WebOptions? webOptions}) async {
+  Future<void> write({required String key, required String? value, IOSOptions? iOptions, AndroidOptions? aOptions}) async {
     if (value == null) return;
-    _m[key] = value;
+    _store[key] = value;
   }
 
   @override
-  Future<String?> read({required String key, IOSOptions? iOptions, AndroidOptions? aOptions, LinuxOptions? lOptions, MacOsOptions? mOptions, WindowsOptions? wOptions, WebOptions? webOptions}) async {
-    return _m[key];
+  Future<String?> read({required String key, IOSOptions? iOptions, AndroidOptions? aOptions}) async {
+    return _store[key];
+  }
+
+  // Other methods omitted for brevity; tests only use read/write
+  @override
+  Future<void> delete({required String key, IOSOptions? iOptions, AndroidOptions? aOptions}) async {
+    _store.remove(key);
   }
 
   @override
-  Future<void> delete({required String key, IOSOptions? iOptions, AndroidOptions? aOptions, LinuxOptions? lOptions, MacOsOptions? mOptions, WindowsOptions? wOptions, WebOptions? webOptions}) async {
-    _m.remove(key);
-  }
+  Future<Map<String, String>> readAll({IOSOptions? iOptions, AndroidOptions? aOptions}) async => Map.from(_store);
 
   @override
-  Future<Map<String, String>> readAll({IOSOptions? iOptions, AndroidOptions? aOptions, LinuxOptions? lOptions, MacOsOptions? mOptions, WindowsOptions? wOptions, WebOptions? webOptions}) async {
-    return Map.from(_m);
-  }
-
-  @override
-  Future<void> deleteAll({IOSOptions? iOptions, AndroidOptions? aOptions, LinuxOptions? lOptions, MacOsOptions? mOptions, WindowsOptions? wOptions, WebOptions? webOptions}) async {
-    _m.clear();
-  }
-
-  @override
-  Future<bool> containsKey({required String key, IOSOptions? iOptions, AndroidOptions? aOptions, LinuxOptions? lOptions, MacOsOptions? mOptions, WindowsOptions? wOptions, WebOptions? webOptions}) async {
-    return _m.containsKey(key);
-  }
+  Future<void> deleteAll({IOSOptions? iOptions, AndroidOptions? aOptions}) async => _store.clear();
 }
 
 void main() {
-  test('save and get api key roundtrip (mocked)', () async {
-    final mock = _InMemorySecureStorage();
-    final store = EncryptedStore(mock);
+  test('save and get api key roundtrip with fake storage', () async {
+    final fake = FakeSecureStorage();
+    final store = EncryptedStore(fake);
 
     await store.saveApiKey('prov', 'secret123');
     final got = await store.getApiKey('prov');

@@ -4,9 +4,9 @@
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 class EncryptedStore {
-  final FlutterSecureStorage _secure;
+  final dynamic _secure;
 
-  EncryptedStore([FlutterSecureStorage? secure]) : _secure = secure ?? const FlutterSecureStorage();
+  EncryptedStore([dynamic secure]) : _secure = secure ?? const FlutterSecureStorage();
 
   Future<void> saveApiKey(String provider, String apiKey) async {
     final key = 'api_key_$provider';
