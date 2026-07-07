@@ -1,8 +1,8 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
-import '../../lib/core/storage/encrypted_store.dart';
+import 'package:bobo_studio_glowsnapup/core/storage/encrypted_store.dart';
 
-class FakeSecureStorage {
+class FakeSecureStorage implements FlutterSecureStorage {
   final Map<String, String> _store = {};
 
   @override

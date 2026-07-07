@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import '../../lib/core/logger.dart';
+import 'package:bobo_studio_glowsnapup/core/logger.dart';
 
 void main() {
   test('AppLogger.info prints without throwing', () {

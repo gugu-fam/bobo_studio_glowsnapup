@@ -6,7 +6,7 @@ import '../viewmodel/photo_studio_viewmodel.dart';
 
 class PhotoStudioView extends StatefulWidget {
   final PhotoStudioViewModel viewModel;
-  const PhotoStudioView({Key? key, required this.viewModel}) : super(key: key);
+  const PhotoStudioView({super.key, required this.viewModel});
 
   @override
   State<PhotoStudioView> createState() => _PhotoStudioViewState();

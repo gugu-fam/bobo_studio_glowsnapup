@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import '../../lib/core/audit/audit_logger.dart' as audit_lib;
+import 'package:bobo_studio_glowsnapup/core/audit/audit_logger.dart' as audit_lib;
 import 'dart:io';
 
 void main() {
