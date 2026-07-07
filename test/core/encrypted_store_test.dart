@@ -2,30 +2,26 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:bobo_studio_glowsnapup/core/storage/encrypted_store.dart';
 
-class FakeSecureStorage implements FlutterSecureStorage {
+class FakeSecureStorage {
   final Map<String, String> _store = {};
 
-  @override
   Future<void> write({required String key, required String? value, IOSOptions? iOptions, AndroidOptions? aOptions}) async {
     if (value == null) return;
     _store[key] = value;
   }
-
-  @override
+  
   Future<String?> read({required String key, IOSOptions? iOptions, AndroidOptions? aOptions}) async {
     return _store[key];
   }
 
   // Other methods omitted for brevity; tests only use read/write
-  @override
+  
   Future<void> delete({required String key, IOSOptions? iOptions, AndroidOptions? aOptions}) async {
     _store.remove(key);
   }
-
-  @override
+  
   Future<Map<String, String>> readAll({IOSOptions? iOptions, AndroidOptions? aOptions}) async => Map.from(_store);
 
-  @override
   Future<void> deleteAll({IOSOptions? iOptions, AndroidOptions? aOptions}) async => _store.clear();
 }
 
