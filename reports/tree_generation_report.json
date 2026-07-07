@@ -1,0 +1,9 @@
+{
+  "timestamp": "2026-07-07T02:10:30.413841Z",
+  "agent_id": "copilot_agent_local",
+  "design_file": "design/complete_design.json",
+  "out_file": "tree.json",
+  "md_file": "tree.md",
+  "files_count": 6,
+  "folders_count": 3
+}

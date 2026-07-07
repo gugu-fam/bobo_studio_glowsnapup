@@ -1,0 +1,43 @@
+{
+  "root": "D:/dev/flutter_projects/bobo_studio_glowsnapup",
+  "folders": [
+    {
+      "path": "design",
+      "children_count": 3
+    },
+    {
+      "path": "docs",
+      "children_count": 2
+    },
+    {
+      "path": "reports",
+      "children_count": 1
+    }
+  ],
+  "files": [
+    {
+      "path": "design/complete_design.json",
+      "in_design": false
+    },
+    {
+      "path": "design/complete_validated_design.json",
+      "in_design": false
+    },
+    {
+      "path": "design/complete_validation_report.json",
+      "in_design": false
+    },
+    {
+      "path": "docs/overview.md",
+      "in_design": false
+    },
+    {
+      "path": "docs/requirements.md",
+      "in_design": false
+    },
+    {
+      "path": "reports/docs_generation_report.json",
+      "in_design": false
+    }
+  ]
+}
