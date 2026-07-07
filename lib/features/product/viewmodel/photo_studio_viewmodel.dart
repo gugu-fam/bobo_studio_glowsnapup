@@ -20,7 +20,7 @@ class PhotoStudioViewModel {
   Future<void> startProcessing(Uint8List image, {Map<String, dynamic>? options}) async {
     _updateState(PhotoStudioState.processing);
     try {
-      final result = await _service.processImage(image, options: options);
+      await _service.processImage(image, options: options);
       // 結果を必要に応じて保存または通知する
       _updateState(PhotoStudioState.success);
     } catch (e) {
