@@ -1,18 +1,62 @@
 import 'package:flutter_test/flutter_test.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import '../../lib/core/storage/encrypted_store.dart';
 
+class _InMemorySecureStorage implements FlutterSecureStorage {
+  final Map<String, String> _m = {};
+
+  @override
+  final AndroidOptions aOptions = const AndroidOptions();
+  @override
+  final IOSOptions iOptions = const IOSOptions();
+  @override
+  final LinuxOptions lOptions = const LinuxOptions();
+  @override
+  final MacOsOptions mOptions = const MacOsOptions();
+  @override
+  final WindowsOptions wOptions = const WindowsOptions();
+  @override
+  final WebOptions webOptions = const WebOptions();
+
+  @override
+  Future<void> write({required String key, required String? value, IOSOptions? iOptions, AndroidOptions? aOptions, LinuxOptions? lOptions, MacOsOptions? mOptions, WindowsOptions? wOptions, WebOptions? webOptions}) async {
+    if (value == null) return;
+    _m[key] = value;
+  }
+
+  @override
+  Future<String?> read({required String key, IOSOptions? iOptions, AndroidOptions? aOptions, LinuxOptions? lOptions, MacOsOptions? mOptions, WindowsOptions? wOptions, WebOptions? webOptions}) async {
+    return _m[key];
+  }
+
+  @override
+  Future<void> delete({required String key, IOSOptions? iOptions, AndroidOptions? aOptions, LinuxOptions? lOptions, MacOsOptions? mOptions, WindowsOptions? wOptions, WebOptions? webOptions}) async {
+    _m.remove(key);
+  }
+
+  @override
+  Future<Map<String, String>> readAll({IOSOptions? iOptions, AndroidOptions? aOptions, LinuxOptions? lOptions, MacOsOptions? mOptions, WindowsOptions? wOptions, WebOptions? webOptions}) async {
+    return Map.from(_m);
+  }
+
+  @override
+  Future<void> deleteAll({IOSOptions? iOptions, AndroidOptions? aOptions, LinuxOptions? lOptions, MacOsOptions? mOptions, WindowsOptions? wOptions, WebOptions? webOptions}) async {
+    _m.clear();
+  }
+
+  @override
+  Future<bool> containsKey({required String key, IOSOptions? iOptions, AndroidOptions? aOptions, LinuxOptions? lOptions, MacOsOptions? mOptions, WindowsOptions? wOptions, WebOptions? webOptions}) async {
+    return _m.containsKey(key);
+  }
+}
+
 void main() {
-  test('EncryptedStore API (no-op if flutter_secure_storage not available)', () async {
-    final store = EncryptedStore();
-    // Try saving and reading; may throw if environment not configured for flutter_secure_storage
-    try {
-      await store.saveApiKey('test', 'value');
-      final v = await store.getApiKey('test');
-      // value may be null depending on platform; ensure call completes
-      expect(v == null || v == 'value', true);
-    } catch (e) {
-      // Environment may not support flutter_secure_storage in test runner; allow failure but not crash test harness
-      expect(e, isNotNull);
-    }
+  test('save and get api key roundtrip (mocked)', () async {
+    final mock = _InMemorySecureStorage();
+    final store = EncryptedStore(mock);
+
+    await store.saveApiKey('prov', 'secret123');
+    final got = await store.getApiKey('prov');
+    expect(got, 'secret123');
   });
 }
