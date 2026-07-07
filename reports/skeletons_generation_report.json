@@ -1,0 +1,40 @@
+{
+  "timestamp": "2026-07-07T02:27:07.971312Z",
+  "agent_id": "copilot_agent_local",
+  "design_file": "design/complete_design.json",
+  "responsibility_file": "responsibility_map.json",
+  "tree_file": "tree.json",
+  "dry_run": false,
+  "to_generate_count": 7,
+  "results": [
+    {
+      "path": "lib/core/logger.dart",
+      "action": "skipped_exists"
+    },
+    {
+      "path": "lib/features/product/photo_studio.dart",
+      "action": "skipped_exists"
+    },
+    {
+      "path": "lib/features/product/view/photo_studio_view.dart",
+      "action": "skipped_exists"
+    },
+    {
+      "path": "lib/features/product/viewmodel/photo_studio_viewmodel.dart",
+      "action": "skipped_exists"
+    },
+    {
+      "path": "lib/features/metadata/description_generator.dart",
+      "action": "skipped_exists"
+    },
+    {
+      "path": "lib/core/storage/encrypted_store.dart",
+      "action": "skipped_exists"
+    },
+    {
+      "path": "lib/core/audit/audit_logger.dart",
+      "action": "skipped_exists"
+    }
+  ],
+  "created_files": []
+}
