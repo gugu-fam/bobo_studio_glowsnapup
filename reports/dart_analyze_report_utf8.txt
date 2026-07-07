@@ -1,16 +1,7 @@
 Analyzing bobo_studio_glowsnapup...
 
-warning - test\core\encrypted_store_test.dart:9:16 - The method doesn't override an inherited method. Try updating this class to match the superclass, or removing the override annotation. - override_on_non_overriding_member
-warning - test\core\encrypted_store_test.dart:15:19 - The method doesn't override an inherited method. Try updating this class to match the superclass, or removing the override annotation. - override_on_non_overriding_member
-warning - test\core\encrypted_store_test.dart:21:16 - The method doesn't override an inherited method. Try updating this class to match the superclass, or removing the override annotation. - override_on_non_overriding_member
-warning - test\core\encrypted_store_test.dart:26:31 - The method doesn't override an inherited method. Try updating this class to match the superclass, or removing the override annotation. - override_on_non_overriding_member
-warning - test\core\encrypted_store_test.dart:29:16 - The method doesn't override an inherited method. Try updating this class to match the superclass, or removing the override annotation. - override_on_non_overriding_member
    info - lib\core\logger.dart:9:5 - Don't invoke 'print' in production code. Try using a logging framework. - avoid_print
    info - lib\core\logger.dart:14:5 - Don't invoke 'print' in production code. Try using a logging framework. - avoid_print
-   info - lib\features\product\view\photo_studio_view.dart:9:9 - Parameter 'key' could be a super parameter. Trying converting 'key' to a super parameter. - use_super_parameters
-   info - test\core\audit_logger_test.dart:2:8 - Can't use a relative path to import a library in 'lib'. Try fixing the relative path or changing the import to a 'package:' import. - avoid_relative_lib_imports
    info - test\core\audit_logger_test.dart:12:22 - Use interpolation to compose strings and values. Try using string interpolation to build the composite string. - prefer_interpolation_to_compose_strings
-   info - test\core\encrypted_store_test.dart:3:8 - Can't use a relative path to import a library in 'lib'. Try fixing the relative path or changing the import to a 'package:' import. - avoid_relative_lib_imports
-   info - test\core\logger_test.dart:2:8 - Can't use a relative path to import a library in 'lib'. Try fixing the relative path or changing the import to a 'package:' import. - avoid_relative_lib_imports
 
-12 issues found.
+3 issues found.

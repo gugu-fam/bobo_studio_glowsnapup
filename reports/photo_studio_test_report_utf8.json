@@ -1,0 +1,11 @@
+{"protocolVersion":"0.1.1","runnerVersion":null,"pid":11900,"type":"start","time":0}
+{"suite":{"id":0,"platform":"vm","path":"D:/dev/flutter_projects/bobo_studio_glowsnapup/test/features/product/photo_studio_test.dart"},"type":"suite","time":0}
+{"test":{"id":1,"name":"loading D:/dev/flutter_projects/bobo_studio_glowsnapup/test/features/product/photo_studio_test.dart","suiteID":0,"groupIDs":[],"metadata":{"skip":false,"skipReason":null},"line":null,"column":null,"url":null},"type":"testStart","time":1}
+{"count":1,"time":9,"type":"allSuites"}
+{"testID":1,"result":"success","skipped":false,"hidden":true,"type":"testDone","time":5049}
+{"group":{"id":2,"suiteID":0,"parentID":null,"name":"","metadata":{"skip":false,"skipReason":null},"testCount":2,"line":null,"column":null,"url":null},"type":"group","time":5054}
+{"test":{"id":3,"name":"processImage returns transformed image and metadata","suiteID":0,"groupIDs":[2],"metadata":{"skip":false,"skipReason":null},"line":6,"column":3,"url":"file:///D:/dev/flutter_projects/bobo_studio_glowsnapup/test/features/product/photo_studio_test.dart"},"type":"testStart","time":5058}
+{"testID":3,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":5099}
+{"test":{"id":4,"name":"generatePreview returns image bytes","suiteID":0,"groupIDs":[2],"metadata":{"skip":false,"skipReason":null},"line":15,"column":3,"url":"file:///D:/dev/flutter_projects/bobo_studio_glowsnapup/test/features/product/photo_studio_test.dart"},"type":"testStart","time":5099}
+{"testID":4,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":5104}
+{"success":true,"type":"done","time":5127}

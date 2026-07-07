@@ -1,0 +1,13 @@
+{
+  "validated": true,
+  "timestamp": "2026-07-07T01:34:45.684069Z",
+  "agent_id": "copilot_agent_local",
+  "input_spec": "design/spec.yaml",
+  "schema_version": "unknown",
+  "summary": {
+    "valid": true,
+    "timestamp": "2026-07-07T01:34:45.684069Z",
+    "files_defined": 1,
+    "classes_defined": 1
+  }
+}

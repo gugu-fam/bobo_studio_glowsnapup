@@ -1,0 +1,9 @@
+{
+  "timestamp": "2026-07-07T01:54:42.571008Z",
+  "agent_id": "copilot_agent_local",
+  "design_file": "design/complete_design.json",
+  "tree_file": "tree.json",
+  "out_file": "responsibility_map.json",
+  "files_processed": 10,
+  "editing_permissions_count": 2
+}

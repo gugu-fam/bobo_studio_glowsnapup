@@ -1,0 +1,3 @@
+   info - lib\core\logger.dart:9:5 - Don't invoke 'print' in production code. Try using a logging framework. - avoid_print
+   info - lib\core\logger.dart:14:5 - Don't invoke 'print' in production code. Try using a logging framework. - avoid_print
+   info - test\core\audit_logger_test.dart:12:22 - Use interpolation to compose strings and values. Try using string interpolation to build the composite string. - prefer_interpolation_to_compose_strings

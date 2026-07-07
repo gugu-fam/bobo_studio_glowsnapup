@@ -1,0 +1,8 @@
+{
+  "timestamp": "2026-07-07T03:11:23Z",
+  "agent_id": "copilot_agent_local",
+  "action": "run_integrity_checks --apply",
+  "files_changed": [
+    "reports/integrity_report.json"
+  ]
+}
