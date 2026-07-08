@@ -1,0 +1,43 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "bobo_studio_glowsnapup design schema",
+  "type": "object",
+  "properties": {
+    "files": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "file": {"type": "string"},
+          "classes": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": {"type": "string"},
+                "methods": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "name": {"type": "string"},
+                      "args": {"type": "array"},
+                      "return": {"type": "string"},
+                      "exceptions": {"type": "array"},
+                      "responsibilities": {"type": "string"}
+                    },
+                    "required": ["name"]
+                  }
+                }
+              },
+              "required": ["name"]
+            }
+          }
+        },
+        "required": ["file"]
+      }
+    },
+    "state_transitions": {"type": "object"}
+  },
+  "required": ["files"]
+}
