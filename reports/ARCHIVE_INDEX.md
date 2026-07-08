@@ -11,3 +11,4 @@
   created_by: copilot_agent_local
   gpg_key_shortid: 079F1148E9F2C635
   contents: SIGNATURE_VERIFICATION.md; public_gpg_079F1148E9F2C635.asc; dry_run_report.json; generate_report.json
+
