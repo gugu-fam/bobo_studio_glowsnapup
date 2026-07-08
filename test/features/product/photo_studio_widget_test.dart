@@ -7,6 +7,8 @@ import 'package:bobo_studio_glowsnapup/features/product/photo_studio_service.dar
 class FakeService extends PhotoStudioService {
 	bool convertCalled = false;
 	bool saveCalled = false;
+	bool uploadCalled = false;
+	bool uploadShouldThrow = false;
 
 	@override
 	Future<File> convertImage(File input, {int quality = 80}) async {
@@ -18,6 +20,13 @@ class FakeService extends PhotoStudioService {
 	Future<bool> saveEditedImage(File edited) async {
 		saveCalled = true;
 		return true;
+	}
+
+	@override
+	Future<UploadResult> uploadPhoto(File file, UploadMeta meta, {String? bearerToken}) async {
+		uploadCalled = true;
+		if (uploadShouldThrow) throw Exception('mock upload failure');
+		return UploadResult(id: 'mock', url: 'https://example/mock.jpg');
 	}
 }
 
@@ -38,10 +47,31 @@ void main() {
 
 		// Tap save button to trigger the flow
 		await tester.tap(find.byKey(const Key('save_button')));
-		await tester.pumpAndSettle();
+		await tester.pump();
+		await tester.pump(const Duration(seconds: 1));
 
 		// Verify service calls
 		expect(service.convertCalled, isTrue);
 		expect(service.saveCalled, isTrue);
+		expect(service.uploadCalled, isTrue);
+		// SnackBar for upload success should appear
+		expect(find.textContaining('Uploaded:'), findsOneWidget);
+	});
+
+	testWidgets('upload failure shows dialog', (WidgetTester tester) async {
+		final service = FakeService()..uploadShouldThrow = true;
+
+		final dir = Directory('test_resources');
+		dir.createSync(recursive: true);
+		final fake = File('${dir.path}/fake2.jpg');
+		fake.writeAsBytesSync([0]);
+
+		await tester.pumpWidget(MaterialApp(home: PhotoStudioWidget(service: service, initialImage: fake)));
+		await tester.tap(find.byKey(const Key('save_button')));
+		await tester.pump();
+		await tester.pump(const Duration(seconds: 1));
+
+		expect(service.uploadCalled, isTrue);
+		expect(find.text('Upload failed'), findsOneWidget);
 	});
 }
