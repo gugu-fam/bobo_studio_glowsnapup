@@ -21,3 +21,6 @@
 - Signature: archive/bobo_studio_glowsnapup-20260708.tar.gz.asc
 - Reports: archive/reports-20260708.tar.gz (signed: archive/reports-20260708.tar.gz.asc)
  - Stored at: secure/archive/bobo_studio_glowsnapup-20260708
+
+Backup location: secure/backup/bobo_studio_glowsnapup-20260708
+Backup date: 2026-07-09T00:00:00Z
