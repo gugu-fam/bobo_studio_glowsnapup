@@ -1,0 +1,82 @@
+"$schema": "http://json-schema.org/draft-07/schema#"
+title: bobo_studio_glowsnapup meta-design schema
+description: >-
+  JSON Schema (YAML form) for the Meta Design specification used by the
+  automatic generator. This schema encodes required fields and basic types
+  described in the implementation specification.
+type: object
+required:
+  - file
+  - classes
+properties:
+  file:
+    type: string
+    description: "Relative output file path, e.g. lib/features/product/photo.dart"
+  classes:
+    type: array
+    description: "Array of class definitions"
+    items:
+      type: object
+      required: [name, methods]
+      properties:
+        name:
+          type: string
+          description: "Class name (PascalCase)"
+        responsibilities:
+          type: array
+          items:
+            type: string
+        methods:
+          type: array
+          items:
+            type: object
+            required: [name, return]
+            properties:
+              name:
+                type: string
+                description: "Method name (camelCase)"
+              args:
+                type: array
+                items:
+                  type: object
+                  required: [name, type]
+                  properties:
+                    name:
+                      type: string
+                    type:
+                      type: string
+              return:
+                type: string
+              exceptions:
+                type: array
+                items:
+                  type: string
+              responsibilities:
+                type: array
+                items:
+                  type: string
+  tests:
+    type: array
+    items:
+      type: object
+      required: [name, scenario, expected]
+      properties:
+        name:
+          type: string
+        scenario:
+          type: string
+        type:
+          type: string
+        preconditions:
+          type: array
+          items: { type: string }
+        expected:
+          type: string
+  api-contracts:
+    type: object
+    description: "Optional: JSON Schema definitions for API request/response"
+  state-responsibility:
+    type: array
+    items:
+      type: string
+additionalProperties: true
