@@ -1,0 +1,4 @@
+# basic ignores
+build/
+.dart_tool/
+.packages
