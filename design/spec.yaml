@@ -1,0 +1,32 @@
+files:
+  - file: lib/features/product/photo_studio.dart
+    classes:
+      - name: PhotoStudio
+        methods:
+          - name: openCamera
+            args: []
+            return: void
+            responsibilities: "Open camera and capture photo"
+          - name: processImage
+            args: []
+            return: string
+            responsibilities: "Apply glow filter and return processed image path"
+state_transitions: {}
+files:
+  - file: lib/features/product/photo_studio.dart
+    classes:
+      - name: PhotoStudioService
+        methods:
+          - name: processImage
+            args:
+              - name: image
+                type: File
+            return: Future<StudioResult>
+            exceptions: []
+            responsibilities: "画像を処理してスタジオ効果を適用する"
+state_transitions:
+  PhotoStudioState:
+    - Idle
+    - Loading
+    - Success
+    - Error

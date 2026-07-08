@@ -1,0 +1,38 @@
+{
+  "created": [
+    {
+      "path": "lib\\features\\product\\photo_studio_widget.dart"
+    },
+    {
+      "path": "lib\\features\\product\\photo_studio_service.dart"
+    },
+    {
+      "path": "lib\\ui\\photo_editor.dart"
+    },
+    {
+      "path": "test\\features\\product\\photo_studio_widget_test.dart"
+    }
+  ],
+  "skipped": [
+    {
+      "path": "pubspec.yaml",
+      "reason": "exists"
+    },
+    {
+      "path": "README.md",
+      "reason": "exists"
+    },
+    {
+      "path": "CODEOWNERS",
+      "reason": "exists"
+    },
+    {
+      "path": "lib\\features\\product\\photo_studio.dart",
+      "reason": "exists"
+    },
+    {
+      "path": "test\\features\\product\\photo_studio_test.dart",
+      "reason": "exists"
+    }
+  ]
+}
