@@ -1,0 +1,10 @@
+{
+  "editing_allowlist": [
+    "lib/features",
+    "lib/core",
+    "lib/ui",
+    "test"
+  ],
+  "generated_at": "2026-07-08T00:00:00Z",
+  "entries": {}
+}

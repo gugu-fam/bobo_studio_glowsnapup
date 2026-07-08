@@ -1,0 +1,16 @@
+{
+  "root": "D:/dev/flutter_projects/bobo_studio_glowsnapup",
+  "folders": [
+    {"path": "lib", "children": [{"path": "features"}, {"path": "core"}, {"path": "ui"}]},
+    {"path": "test"},
+    {"path": "docs"},
+    {"path": ".ci"}
+  ],
+  "files": [
+    {"path": "pubspec.yaml"},
+    {"path": "README.md"},
+    {"path": "CODEOWNERS"},
+    {"path": "lib/features/product/photo_studio.dart"},
+    {"path": "test/features/product/photo_studio_test.dart"}
+  ]
+}
