@@ -1,3 +1,11 @@
+# Ignore generated archives and secure backups (local-only artifacts)
+/archive/
+/secure/
+run_local_ci*.log
+*.log
+*.bak
+.flutter-plugins-dependencies
+pubspec.lock
 # basic ignores
 build/
 .dart_tool/

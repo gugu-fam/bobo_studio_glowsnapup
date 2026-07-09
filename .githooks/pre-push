@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# Optional pre-push hook. To enable: chmod +x .githooks/pre-push && ln -s ../../.githooks/pre-push .git/hooks/pre-push
+echo "Running local CI before push..."
+make ci
+if [ $$? -ne 0 ]; then
+  echo "Local CI failed. Push aborted."
+  exit 1
+fi
+exit 0
