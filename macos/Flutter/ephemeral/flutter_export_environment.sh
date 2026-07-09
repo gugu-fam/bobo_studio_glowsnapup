@@ -1,8 +1,8 @@
 #!/bin/sh
 # This is a generated file; do not edit or check into version control.
-export "FLUTTER_ROOT=C:\tools\flutter\flutter"
-export "FLUTTER_APPLICATION_PATH=D:\dev\flutter_projects\bobo_studio_glowsnapup"
-export "FLUTTER_FRAMEWORK_SWIFT_PACKAGE_PATH=D:\dev\flutter_projects\bobo_studio_glowsnapup\macos\Flutter\ephemeral\Packages\.packages\FlutterFramework"
+export "FLUTTER_ROOT=/home/gugu-fam/flutter"
+export "FLUTTER_APPLICATION_PATH=/mnt/d/dev/flutter_projects/bobo_studio_glowsnapup"
+export "FLUTTER_FRAMEWORK_SWIFT_PACKAGE_PATH=/mnt/d/dev/flutter_projects/bobo_studio_glowsnapup/macos/Flutter/ephemeral/Packages/.packages/FlutterFramework"
 export "COCOAPODS_PARALLEL_CODE_SIGN=true"
 export "FLUTTER_BUILD_DIR=build"
 export "FLUTTER_BUILD_NAME=1.0.0"

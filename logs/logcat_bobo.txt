@@ -1,0 +1,4 @@
+07-09 19:08:12.921 163969 163969 W adb     : network.cpp:149 failed to connect to '127.0.0.1:5037': Connection refused
+* cannot start server on remote host
+- waiting for device -
+error: cannot connect to daemon at tcp:127.0.0.1:5037: failed to connect to '127.0.0.1:5037': Connection refused

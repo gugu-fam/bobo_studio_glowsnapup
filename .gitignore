@@ -1,5 +1,6 @@
 # Ignore generated archives and secure backups (local-only artifacts)
 /archive/
+/dist/
 /secure/
 run_local_ci*.log
 *.log

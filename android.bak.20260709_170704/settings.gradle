@@ -1,0 +1,2 @@
+rootProject.name = 'bobo_studio_glowsnapup'
+include ':app'

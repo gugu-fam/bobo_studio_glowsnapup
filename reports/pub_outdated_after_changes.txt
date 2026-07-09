@@ -1,0 +1,24 @@
+Showing outdated packages.
+[*] indicates versions that are not the latest available.
+
+Package Name                   Current   Upgradable  Resolvable  Latest   
+
+direct dependencies: all up-to-date.
+
+dev_dependencies: all up-to-date.
+
+transitive dependencies:      
+flutter_secure_storage_darwin  *0.3.2    *0.3.2      *0.3.2      0.4.0    
+meta                           *1.18.3   1.19.0      1.19.0      1.19.0   
+mime                           *1.0.6    2.0.0       2.0.0       2.0.0    
+package_config                 *2.2.0    *2.2.0      *2.2.0      3.0.0    
+
+transitive dev_dependencies:  
+_fe_analyzer_shared            *103.0.0  *103.0.0    *103.0.0    104.0.0  
+analyzer                       *13.3.0   *13.3.0     *13.3.0     14.0.0   
+dart_style                     *3.1.10   3.1.11      3.1.11      3.1.11   
+test_api                       *0.7.12   *0.7.12     *0.7.12     0.7.13   
+
+3 upgradable dependencies are locked (in pubspec.lock) to older versions.
+To update these dependencies, use `flutter pub upgrade`.
+all dependencies are up-to-date.

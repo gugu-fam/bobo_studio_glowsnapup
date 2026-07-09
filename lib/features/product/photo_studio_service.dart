@@ -24,11 +24,13 @@ class PhotoStudioService {
 	final http.Client _client;
 	final Uri endpoint;
 	final Duration timeout;
+	final bool enableUpload;
 
-	PhotoStudioService({http.Client? client, Uri? endpoint, Duration? timeout})
+	PhotoStudioService({http.Client? client, Uri? endpoint, Duration? timeout, bool? enableUpload})
 			: _client = client ?? http.Client(),
 				endpoint = endpoint ?? Uri.parse('https://example.local/api/v1/photos'),
-				timeout = timeout ?? const Duration(seconds: 10);
+				timeout = timeout ?? const Duration(seconds: 10),
+				enableUpload = enableUpload ?? false;
 
 	// Stub: convert image (e.g., resize/encode) and return converted File
 	Future<File> convertImage(File input, {int quality = 80}) async {
@@ -45,6 +47,12 @@ class PhotoStudioService {
 	// Upload photo to server with multipart/form-data. Returns UploadResult on success.
 	// Retries once on 5xx responses.
 	Future<UploadResult> uploadPhoto(File file, UploadMeta meta, {String? bearerToken}) async {
+		// If uploads are disabled (local-only mode), return a fake UploadResult
+		if (!enableUpload) {
+			final id = DateTime.now().millisecondsSinceEpoch.toString();
+			final url = Uri.file(file.path).toString();
+			return UploadResult(id: id, url: url);
+		}
 		int attempts = 0;
 		while (true) {
 			attempts += 1;

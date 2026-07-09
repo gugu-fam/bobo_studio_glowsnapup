@@ -1,0 +1,9 @@
+gpg: enabled compatibility flags:
+gpg: 2026年07月09日 14時15分43秒 JSTに施された署名
+gpg:                RSA鍵34E99ECD52FE1A446FC8CFB2079F1148E9F2C635を使用
+gpg: pgp信用モデルを使用
+gpg: "bobo-packager (bobo_packager_key) <ci@local>"からの正しい署名 [究極]
+gpg: バイナリ署名、ダイジェスト・アルゴリズム SHA512、鍵アルゴリズム rsa3072
+gpg: marginals needed: 3  completes needed: 1  trust model: pgp
+gpg: 深さ: 0  有効性:   4  署名:   0  信用: 0-, 0q, 0n, 0m, 0f, 4u
+gpg: 次回の信用データベース検査は、2027-07-06です

@@ -1,0 +1,9 @@
+tru::1:1783575633:1814846383:3:1:5
+pub:u:3072:1:079F1148E9F2C635:1782627122:::u:::escarESCA::::::23::0:
+fpr:::::::::34E99ECD52FE1A446FC8CFB2079F1148E9F2C635:
+uid:u::::1782627122::ACBEA9288DB25752E9B1A894AAA2F737D498D7A7::bobo-packager (bobo_packager_key) <ci@local>::::::::::0:
+sig:::1:079F1148E9F2C635:1782627122::::bobo-packager (bobo_packager_key) <ci@local>:13x::34E99ECD52FE1A446FC8CFB2079F1148E9F2C635:::10:
+pub   rsa3072 2026-06-28 [SCEAR]
+      34E9 9ECD 52FE 1A44 6FC8  CFB2 079F 1148 E9F2 C635
+uid           [  究極  ] bobo-packager (bobo_packager_key) <ci@local>
+
