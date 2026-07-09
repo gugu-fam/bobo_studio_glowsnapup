@@ -73,13 +73,13 @@ class PhotoStudioService {
 
 				// treat 4xx and non-retriable 5xx as error
 				throw HttpException('Upload failed: ${resp.statusCode} ${resp.reasonPhrase}');
-			} on SocketException catch (e) {
+			} on SocketException catch (_) {
 				if (attempts < 2) continue;
 				rethrow;
-			} on http.ClientException catch (e) {
+			} on http.ClientException catch (_) {
 				if (attempts < 2) continue;
 				rethrow;
-			} on TimeoutException catch (e) {
+			} on TimeoutException catch (_) {
 				if (attempts < 2) continue;
 				rethrow;
 			}
