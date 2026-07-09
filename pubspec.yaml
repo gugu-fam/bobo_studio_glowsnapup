@@ -4,7 +4,7 @@ publish_to: 'none'
 version: 1.0.0+1
 
 environment:
-  sdk: ^3.12.2
+  sdk: ">=3.0.0 <4.0.0"
 
 dependencies:
   flutter:
@@ -13,9 +13,9 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.8
-  flutter_secure_storage: ^8.0.0
+  flutter_secure_storage: ^10.3.1
   crypto: ^3.0.0
-  image_picker: ^0.8.7+4
+  image_picker: ^1.2.3
   http: ^0.13.6
 
 dev_dependencies:
@@ -24,6 +24,8 @@ dev_dependencies:
 
   flutter_lints: ^6.0.0
   mockito: ^5.4.0
+  integration_test:
+    sdk: flutter
 
 flutter:
 
