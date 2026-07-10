@@ -1,0 +1,3 @@
+# unsigned allowlist
+# Add commit SHA and a short justification, one per line. Example:
+# 45dc0db7...  legacy import from upstream - approved by security team on 2026-07-01
